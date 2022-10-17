@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql18
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_PASSWORD: 123456
+      MYSQLDB_USER: root
+      MYSQL_DATABASE: qlchuyenbay
+  # web:
+  #   build:
+  #     context: .
+  #   ports: 
+  #     - 8081:8081
+  #   environment:
+  #     - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/qlchuyenbay
+  #   depends_on:
+  #     - mysql
+  #   links:
+  #     - mysql
